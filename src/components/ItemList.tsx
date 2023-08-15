@@ -1,10 +1,14 @@
-import React from 'react';
-import Item from '../components/item';
+import { Product } from "./types";
+import Item from "../components/Item";
 
-function ItemList({ products }) {
+interface ItemListProps {
+  products: Product[];
+}
+
+function ItemList({ products }: ItemListProps) {
   return (
     <div>
-      {products.map(product => (
+      {products.map((product) => (
         <Item key={product.id} product={product} />
       ))}
     </div>

@@ -10,7 +10,7 @@ export const Button = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.5);;
+    background-color: gray;
   }
 
   &:disabled {

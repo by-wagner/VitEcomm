@@ -1,6 +1,10 @@
-import React from 'react';
+import { Product } from "./types";
 
-function Item({ product }) {
+interface ItemProps {
+  product: Product;
+}
+
+function Item({ product }: ItemProps) {
   return (
     <div>
       <img src={product.pictureUrl} alt={product.title} />

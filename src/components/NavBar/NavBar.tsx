@@ -5,7 +5,7 @@ import CartWidget from "../CartWidget/CartWidget";
 const NavBar: React.FC = () => {
   return (
     <NavBarContainer>
-      <Brand>ViteEcomm</Brand>
+      <Brand>VitEcomm</Brand>
       <CategoryList>
         <Category>Category 1</Category>
         <Category>Category 2</Category>
