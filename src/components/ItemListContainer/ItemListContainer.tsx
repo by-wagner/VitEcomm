@@ -20,11 +20,11 @@ function ItemListContainer({ greeting }: ItemListContainerProps) {
   }, []);
 
   return (
-    <div>
+    <>
       <h2>{greeting}</h2>
       <ItemList products={products} />
       <ItemCount stock={10} initial={1} onAdd={(quantity) => console.log(quantity)} />
-    </div>
+    </>
   );
 }
 

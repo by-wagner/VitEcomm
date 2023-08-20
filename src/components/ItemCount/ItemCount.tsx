@@ -27,14 +27,14 @@ const ItemCount: React.FC<ItemCountProps> = ({ stock, initial, onAdd }) => {
   };
 
   return (
-    <div>
+    <>
       <Button onClick={handleDecrease}>-</Button>
       <span>{quantity}</span>
       <Button onClick={handleIncrease}>+</Button>
       <Button onClick={handleAddToCart} disabled={stock === 0}>
         Adicionar ao Carrinho
       </Button>
-    </div>
+    </>
   );
 };
 

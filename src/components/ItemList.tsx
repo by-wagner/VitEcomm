@@ -7,11 +7,11 @@ interface ItemListProps {
 
 function ItemList({ products }: ItemListProps) {
   return (
-    <div>
+    <>
       {products.map((product) => (
         <Item key={product.id} product={product} />
       ))}
-    </div>
+    </>
   );
 }
 
