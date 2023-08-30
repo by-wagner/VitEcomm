@@ -1,12 +1,18 @@
-import React from "react";
-import { CartIcon } from "./CartWidgetStyles";
+import { useCart } from '../Cart/CartContext';
 
-const CartWidget: React.FC = () => {
-  return (
-    <CartIcon>
-      <i className="fa fa-shopping-cart" aria-hidden="true"></i>
-    </CartIcon>
-  );
-};
+function CartWidget() {
+    const { cart } = useCart();
+
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+    if (totalItems === 0) return null;
+
+    return (
+        <div>
+            <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+            {totalItems}
+        </div>
+    );
+}
 
 export default CartWidget;

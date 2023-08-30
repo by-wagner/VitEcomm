@@ -1,17 +1,23 @@
-import React from "react";
-import NavBar from "./components/NavBar/NavBar";
-import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
-import { CartProvider } from "./components/Cart/CartContext";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { CartProvider } from './components/Cart/CartContext';
+import Cart from './components/Cart/Cart';
+import NavBar from './components/NavBar/NavBar';
+import HomePage from './HomePage';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
-const App: React.FC = () => {
-  return (
-    <>
-      <CartProvider>
-        <NavBar />
-        <ItemListContainer greeting="Bem-vindo à nossa loja!" />
-      </CartProvider>
-    </>
-  );
-};
+function App() {
+    return (
+        <CartProvider>
+            <Router>
+                <NavBar />
+                <ItemListContainer greeting="Bem-vindo à nossa loja!" />
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/cart" element={<Cart />} />
+                </Routes>
+            </Router>
+        </CartProvider>
+    );
+}
 
 export default App;
