@@ -1,8 +1,10 @@
+import { ReactNode } from "react";
+
 export interface Product {
-    pictureUrl: string;
-    title: string;
-    description: string;
-    price: number;
-    id: number;
-  }
-  
+  pictureUrl: string | undefined;
+  description: ReactNode;
+  imgUrl: string;
+  title: string;
+  price: number;
+  id: string; 
+}

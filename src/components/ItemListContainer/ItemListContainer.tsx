@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase/firebaseConfig";
 import ItemCount from "../ItemCount/ItemCount";
-import ItemList from "../ItemList";
+import ItemList from "../ItemList/ItemList";
 import { Product } from "../types";
 
 const getProducts = async (): Promise<Product[]> => {

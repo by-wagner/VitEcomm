@@ -1,4 +1,5 @@
 import { useCart } from '../Cart/CartContext';
+import { FaShoppingCart } from 'react-icons/fa';
 
 function CartWidget() {
     const { cart } = useCart();
@@ -9,7 +10,7 @@ function CartWidget() {
 
     return (
         <div>
-            <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+            <FaShoppingCart />
             {totalItems}
         </div>
     );

@@ -1,34 +1,104 @@
 import styled from "styled-components";
 
 export const NavBarContainer = styled.nav`
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
+    display: flex;
+    justify-content: space-around
+    ;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 70px;
+    background-color: black;
+    color: white;
+    padding: 0 20px;
 `;
 
-export const Brand = styled.h1`
-  color: white;
-  font-size: 25px;
-  margin-right: auto;
+export const Logo = styled.div`
+    font-size: 1.5rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 200px;
+    cursor: pointer;
 `;
 
-export const CategoryList = styled.ul`
-  list-style: none;
-  display: flex;
-  margin-left: auto;
+export const IconsContainer = styled.div`
+    display: flex;
+    gap: 20px;
+    align-items: center;
 `;
 
-export const Category = styled.li`
-  margin-right: 25px;
-  color: white;
-  cursor: pointer;
+export const CartIcon = styled.div`
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    
+    span {
+        position: absolute;
+        top: 0;
+        right: -5px;
+        background-color: red;
+        color: white;
+        border-radius: 50%;
+        padding: 2px 5px;
+        font-size: 0.8rem;
+    }
+`;
 
-  &:hover {
-    text-decoration: underline;
-  }
+export const MenuIcon = styled.div`
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+`;
+
+export const OffCanvas = styled.div<{ isOpen: boolean }>`
+    position: fixed;
+    top: 0;
+    right: ${({ isOpen }) => (isOpen ? '0' : '-300px')};
+    width: 300px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    transition: right 0.3s ease-in-out;
+    z-index: 10;
+`;
+
+
+export const OffCanvasHeader = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+`;
+
+export const CloseIcon = styled.div`
+    font-size: 1.5rem;
+    cursor: pointer;
+`;
+
+export const OffCanvasBody = styled.div`
+    padding: 20px;
+`;
+
+export const OffCanvasLinks = styled.ul`
+    list-style-type: none;
+    padding: 20px;  // Adicionando padding
+    font-family: 'Roboto', sans-serif;  // Fonte do footer
+    font-size: 1.1em;
+    font-weight: 300;  // Estilo de fonte semelhante ao footer
+    line-height: 2em;
+
+    a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: #888;  // Alterando a cor ao passar o mouse para um cinza mais claro
+        }
+    }
 `;
