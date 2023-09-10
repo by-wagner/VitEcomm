@@ -1,19 +1,19 @@
-import { useCart } from '../Cart/CartContext';
-import { FaShoppingCart } from 'react-icons/fa';
+import { useCart } from "../Cart/CartContext";
+import { FaShoppingCart } from "react-icons/fa";
 
 function CartWidget() {
-    const { cart } = useCart();
+  const { cart } = useCart();
 
-    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-    if (totalItems === 0) return null;
+  if (totalItems === 0) return null;
 
-    return (
-        <div>
-            <FaShoppingCart />
-            {totalItems}
-        </div>
-    );
+  return (
+    <div>
+      <FaShoppingCart />
+      {totalItems}
+    </div>
+  );
 }
 
 export default CartWidget;

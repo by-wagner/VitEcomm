@@ -1,14 +1,11 @@
 import styled from "styled-components";
 
-// =========================
-// General Footer Styles
-// =========================
 export const FooterContainer = styled.footer`
   background-color: rgba(0, 0, 0, 0.9);
   color: white;
   padding: 40px 10%;
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: flex-start;
   bottom: 0;
   left: 0;
@@ -16,9 +13,6 @@ export const FooterContainer = styled.footer`
   font-size: 14px;
 `;
 
-// =========================
-// Column Styles (for organization)
-// =========================
 export const Column = styled.div`
   display: flex;
   flex-direction: column;
@@ -31,9 +25,6 @@ export const ColumnTitle = styled.h3`
   font-weight: 500;
 `;
 
-// =========================
-// Social Media Links Styles
-// =========================
 export const SocialLinks = styled(Column)``;
 
 export const SocialIconLink = styled.a`
@@ -47,9 +38,6 @@ export const SocialIconLink = styled.a`
   }
 `;
 
-// =========================
-// Useful Links Styles
-// =========================
 export const UsefulLinks = styled(Column)``;
 
 export const Link = styled.a`

@@ -6,5 +6,5 @@ export interface Product {
   imgUrl: string;
   title: string;
   price: number;
-  id: string; 
+  id: string;
 }

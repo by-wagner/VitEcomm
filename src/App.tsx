@@ -1,23 +1,27 @@
-
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import HomePage from "./HomePage";
+import HomePage from "./components/HomePage/HomePage";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
-import { CartProvider } from "./components/Cart/CartContext"; // Importing the CartProvider
+import { CartProvider } from "./components/Cart/CartContext";
 import Feature from "./components/Feature/Feature";
+import CheckoutPage from "./components/Checkout/CheckoutPage";
 
 const App: React.FC = () => {
+  const isCheckoutPage = window.location.pathname === "/checkout";
+
   return (
-    <CartProvider> {/* Wrapping the components with CartProvider */}
+    <CartProvider>
       <Router>
-        <NavBar />
-        <Feature />
+        {/* Render Navbar and Feature only if on the main page */}
+        {!isCheckoutPage && <NavBar />}
+        {!isCheckoutPage && <Feature />}
         <Routes>
           <Route path="/" element={<HomePage />} />
-          {/* Other routes can be added here */}
+          <Route path="/checkout" element={<CheckoutPage />} />
         </Routes>
-        <Footer />
+        {/* Render Footer only if on the main page */}
+        {!isCheckoutPage && <Footer />}
       </Router>
     </CartProvider>
   );

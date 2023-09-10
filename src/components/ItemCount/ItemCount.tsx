@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button } from "./ItemCountStyles";
 
 interface ItemCountProps {
-  stock: number; 
+  stock: number;
   initial: number;
   onAdd: (quantity: number) => void;
 }
