@@ -61,10 +61,10 @@ export const MenuIcon = styled.div`
   cursor: pointer;
 `;
 
-export const OffCanvas = styled.div<{ isOpen: boolean }>`
+export const OffCanvas = styled.div<{ $isOpen: boolean }>`
   position: fixed;
   top: 0;
-  right: ${({ isOpen }) => (isOpen ? "0" : "-300px")};
+  right: ${({ $isOpen }) => ($isOpen ? "0" : "-300px")};
   width: 300px;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.9);

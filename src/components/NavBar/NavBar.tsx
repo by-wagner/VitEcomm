@@ -20,8 +20,7 @@ import {
 import { CiMenuFries } from "react-icons/ci";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { MdClose } from "react-icons/md";
-import logoImage from '../Soho Antwerp.png';
-
+import logoImage from "../Soho Antwerp.png";
 
 const NavBar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,9 +34,9 @@ const NavBar: React.FC = () => {
   return (
     <>
       <NavBarContainer>
-      <Logo>
-   <img src={logoImage} alt="Your Logo Name" />
-</Logo>
+        <Logo>
+          <img src={logoImage} alt="Your Logo Name" />
+        </Logo>
 
         <IconsContainer>
           <CartIcon as="a" href="/checkout">
@@ -50,7 +49,7 @@ const NavBar: React.FC = () => {
         </IconsContainer>
       </NavBarContainer>
 
-      <OffCanvas isOpen={isMenuOpen}>
+      <OffCanvas $isOpen={isMenuOpen}>
         <CloseIcon onClick={handleMenuToggle}>
           <FaTimes size={24} />
         </CloseIcon>
