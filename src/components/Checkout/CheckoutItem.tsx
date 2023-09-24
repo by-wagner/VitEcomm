@@ -11,7 +11,7 @@ const CheckoutItem: React.FC<CheckoutItemProps> = ({ product }) => {
       <img src={product.imgUrl} alt={product.title} />
       <h4>{product.title}</h4>
       <p>{product.description}</p>
-      <span>${product.price}</span>
+      <span>{product.quantity}x ${product.price.toFixed(2)}</span>
       <button>Remove from cart</button>
     </div>
   );

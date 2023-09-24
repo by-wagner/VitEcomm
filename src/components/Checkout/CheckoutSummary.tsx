@@ -6,7 +6,7 @@ const CheckoutSummary: React.FC = () => {
   const { cart } = useCart();
 
   const total = cart.reduce(
-    (acc: number, product: any) => acc + product.price,
+    (acc: number, product: any) => acc + product.price * product.quantity,
     0
   );
 

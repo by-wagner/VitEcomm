@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   NavBarContainer,
   Logo,
@@ -30,6 +30,14 @@ const NavBar: React.FC = () => {
     console.log("Toggling menu...");
     setIsMenuOpen(!isMenuOpen);
   };
+
+  console.log('NavBar Mounted');
+
+  useEffect(() => {
+    return () => {
+      console.log('NavBar Unmounted');
+    };
+  }, []);
 
   return (
     <>

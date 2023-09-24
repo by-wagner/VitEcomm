@@ -1,56 +1,53 @@
-import { createContext, useContext, ReactNode, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
+import { Product } from "../types";
 
-export interface CartItem {
-  imgUrl: string | undefined;
-  title: string | undefined;
-  description: ReactNode;
-  id: number;
-  name: string;
-  price: number;
+export interface CartItem extends Product {
   quantity: number;
 }
 
-interface CartContextType {
-  cart: CartItem[];
-  addItem: (item: CartItem, quantity: number) => void;
-  removeItem: (itemId: number) => void;
+type CartContextType = {
+  cart: Product[];
+  addItem: (product: Product) => void;
+  removeItem: (id: string) => void;
   clear: () => void;
-  isInCart: (id: number) => boolean;
-}
+  isInCart: (id: string) => boolean;
+};
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
-interface CartProviderProps {
-  children: ReactNode;
-}
+type CartProviderProps = {
+  children: React.ReactNode;
+};
 
 export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
-  const [cart, setCart] = useState<CartItem[]>([]);
+  const [cart, setCart] = useState<Product[]>([]);
 
-  const addItem = (item: CartItem, quantity: number) => {
-    setCart((prevCart) => {
-      const existingItem = prevCart.find((i) => i.id === item.id);
-      if (existingItem) {
-        return prevCart.map((i) =>
-          i.id === item.id ? { ...i, quantity: i.quantity + quantity } : i
-        );
-      } else {
-        return [...prevCart, { ...item, quantity }];
-      }
-    });
+  const addItem = (product: Product) => {
+    if (isInCart(product.id)) {
+      setCart((prevCart) =>
+        prevCart.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + product.quantity }
+            : item
+        )
+      );
+    } else {
+      setCart((prevCart) => [...prevCart, product]);
+    }
+    console.log("Cart after addItem:", cart);
   };
 
-  const removeItem = (itemId: number) => {
-    setCart((prevCart) => prevCart.filter((item) => item.id !== itemId));
+  const removeItem = (id: string) => {
+    setCart((prevCart) => prevCart.filter((product) => product.id !== id));
+    console.log("Cart after removeItem:", cart);
   };
 
   const clear = () => {
     setCart([]);
+    console.log("Cart after clear:", cart);
   };
 
-  const isInCart = (id: number) => {
-    return cart.some((item) => item.id === id);
-  };
+  const isInCart = (id: string) => cart.some((product) => product.id === id);
 
   return (
     <CartContext.Provider
