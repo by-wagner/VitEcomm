@@ -15,18 +15,16 @@ const ProductCard: React.FC<Props> = ({ product }) => {
     const productId = Number(product.id);
 
     // Convert the product to a CartItem and add it to the cart with a quantity of 1
-    addItem(
-      {
-        id: productId,
-        name: product.title,
-        price: product.price,
-        quantity: 1,
-        imgUrl: undefined,
-        title: undefined,
-        description: undefined,
-      },
-      1
-    );
+    addItem({
+      id: String(productId),
+      name: product.title,
+      price: product.price,
+      quantity: 1,
+      imgUrl: product.imgUrl || '',
+      title: product.title || '',
+      description: product.description || '',
+      pictureUrl: undefined
+    });
   };
 
   return (
@@ -34,7 +32,7 @@ const ProductCard: React.FC<Props> = ({ product }) => {
       <img src={product.imgUrl} alt={product.title} />
       <h2>{product.title}</h2>
       <p>${product.price}</p>
-      {!isInCart(Number(product.id)) && (
+      {!isInCart(product.id) && ( // Pass the ID as string
         <button onClick={handleAddToCart}>Add to Cart</button>
       )}
     </CardContainer>
